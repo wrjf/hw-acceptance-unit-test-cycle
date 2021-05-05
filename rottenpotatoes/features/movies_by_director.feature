@@ -32,3 +32,16 @@ Scenario: can't find similar movies if we don't know director (sad path)
   When  I follow "Find Movies With Same Director"
   Then  I should be on the home page
   And   I should see "'Alien' has no director info"
+
+Scenario: can't find similar movies if we don't know director (sad path)
+  Given I am on the details page for "Aladin"
+  Then  I should not see "George Lucas"
+  When  I follow "Find Movies With Same Director"
+  Then  I should be on the home page
+  And   I should see "'Aladin' has no director info"
+  
+Scenario: find edit page
+  Given I am on the details page for "Star Wars"
+  Then  I should see "Edit"
+  When  I follow "Edit"
+  Then  I should see "Edit Existing Movie"
